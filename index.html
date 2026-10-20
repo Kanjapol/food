@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ร้านอาหารตามสั่ง อร่อย สดใหม่ สะอาด ราคาเป็นกันเอง">
+    <title>ครัวอร่อย - ร้านอาหารตามสั่ง</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: #fffaf2;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #a52a2a;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd27d;
+        }
+
+        .hero {
+            min-height: 400px;
+            padding: 70px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(rgba(50, 20, 5, .65), rgba(50, 20, 5, .65)),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #e5a12b;
+            color: #2e1b08;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .2s;
+        }
+
+        .button:hover {
+            background: #ffc95d;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 65px 8%;
+            scroll-margin-top: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #a52a2a;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #777;
+            margin-bottom: 35px;
+        }
+
+        .about {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .menu {
+            background: #fff0d8;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(80, 40, 10, .1);
+            transition: .25s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(80, 40, 10, .16);
+        }
+
+        .menu-card img {
+            display: block;
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .menu-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu-info h3 {
+            color: #a52a2a;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .menu-info p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #a52a2a;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact-box {
+            background: white;
+            max-width: 600px;
+            margin: 25px auto 0;
+            padding: 30px 20px;
+            border-radius: 16px;
+            box-shadow: 0 5px 18px rgba(80, 40, 10, .1);
+        }
+
+        .phone {
+            display: inline-block;
+            margin: 15px 0;
+            font-size: 28px;
+            color: #a52a2a;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #57251e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 16px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+
+            .hero {
+                min-height: 340px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ส่วนหัวเว็บไซต์ -->
+    <header>
+        <div class="logo">🍳 ครัวอร่อย</div>
+
+        <nav>
+            <a href="#home">หน้าแรก</a>
+            <a href="#about">ประวัติร้าน</a>
+            <a href="#menu">เมนูอาหาร</a>
+            <a href="#contact">ติดต่อ</a>
+        </nav>
+    </header>
+
+    <!-- หน้าแรก -->
+    <section class="hero" id="home">
+        <h1>ครัวอร่อย</h1>
+        <p>อาหารตามสั่ง รสชาติถูกใจ อิ่มอร่อยทุกจาน ❤️</p>
+        <a href="#menu" class="button">ดูเมนูอาหาร</a>
+    </section>
+
+    <!-- ประวัติร้าน -->
+    <section id="about">
+        <h2 class="section-title">ประวัติร้านอาหาร</h2>
+        <p class="section-description">ความอร่อยที่ใส่ใจในทุกจาน</p>
+
+        <div class="about">
+            <p>
+                ยินดีต้อนรับสู่ <strong>ร้านครัวอร่อย</strong>
+                ร้านอาหารตามสั่งที่พร้อมเสิร์ฟความอร่อยให้กับทุกคน
+                เราให้ความสำคัญกับวัตถุดิบ ความสะอาด และรสชาติอาหาร
+                เพื่อให้ลูกค้าทุกคนได้รับประสบการณ์การรับประทานอาหารที่ดี
+            </p>
+            <p>
+                ไม่ว่าจะเป็นข้าวผัด กะเพรารสจัดจ้าน
+                หรือหมูกระเทียมหอม ๆ เราพร้อมปรุงสดใหม่ทุกจาน
+            </p>
+        </div>
+    </section>
+
+    <!-- เมนูอาหาร -->
+    <section class="menu" id="menu">
+        <h2 class="section-title">เมนูอาหาร</h2>
+        <p class="section-description">อร่อยง่าย ๆ เลือกเมนูโปรดของคุณ</p>
+
+        <div class="menu-grid">
+
+            <article class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=800&q=80"
+                    alt="ข้าวผัด"
+                    loading="lazy"
+                >
+                <div class="menu-info">
+                    <h3>🍚 ข้าวผัด</h3>
+                    <p>ข้าวผัดหอมกระทะ ปรุงสดใหม่ทุกจาน</p>
+                    <div class="price">ราคา: สอบถามร้าน</div>
+                </div>
+            </article>
+
+            <article class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?auto=format&fit=crop&w=800&q=80"
+                    alt="ข้าวกะเพรา"
+                    loading="lazy"
+                >
+                <div class="menu-info">
+                    <h3>🌶️ กะเพรา</h3>
+                    <p>กะเพราหอม ๆ รสชาติเข้มข้น เสิร์ฟพร้อมข้าวสวย</p>
+                    <div class="price">ราคา: สอบถามร้าน</div>
+                </div>
+            </article>
+
+            <article class="menu-card">
+                <img
+                    src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80"
+                    alt="ข้าวหมูกระเทียม"
+                    loading="lazy"
+                >
+                <div class="menu-info">
+                    <h3>🧄 กระเทียมราดข้าว</h3>
+                    <p>เนื้อสัตว์ผัดกระเทียมหอม ๆ ทานคู่ข้าวสวยร้อน ๆ</p>
+                    <div class="price">ราคา: สอบถามร้าน</div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ติดต่อร้าน -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">ติดต่อเรา</h2>
+        <p class="section-description">สอบถามเมนูอาหารและรายละเอียดเพิ่มเติม</p>
+
+        <div class="contact-box">
+            <h3>📞 โทรศัพท์</h3>
+            <a class="phone" href="tel:0807744844">080-774-4844</a>
+            <p>โทรหาเราได้โดยตรงผ่านโทรศัพท์มือถือ</p>
+            <br>
+            <a class="button" href="tel:0807744844">โทรสั่งอาหาร</a>
+        </div>
+    </section>
+
+    <!-- ท้ายเว็บไซต์ -->
+    <footer>
+        <p>© <span id="year"></span> ครัวอร่อย | สงวนลิขสิทธิ์</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
